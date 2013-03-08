@@ -1,0 +1,314 @@
+app-accessibility::: The app-accessibility category contains packages which help with accessibility (for example, screen readers).:::app-accessibility包含辅助功能类软件包（例如，屏幕阅读器）。
+
+app-admin::: The app-admin category contains non-core applications which relate to system administration.:::app-admin包含非核心的应用程序，其中涉及到系统管理。
+
+app-antivirus::: The app-antivirus category contains antivirus software.:::app-antivirus类别包含防病毒软件。
+
+app-arch::: The app-arch category contains tools for archiving, compressing and uncompressing files or groups of files.:::app-arch包含归档，压缩，解压缩文件或一组文件的工具。
+
+app-backup::: The app-backup category contains tools for performing backups of data, including both full and incremental backups, as well as backups to other media (CD-R, Tape, etc.).:::app-backup包含数据备份，包括全备份和增量备份，以及备份到其他介质（CD-R，磁带等）的工具。
+
+app-benchmarks::: The app-benchmarks category contains benchmarking software.:::app-benchmarks类别包含基准测试软件。
+
+app-cdr::: The app-cdr category contains software for writing CDs and DVDs, and for working with .iso files.:::app-cdr类别包含CD和DVD光盘刻录工具，以及操作iso文件的工具。
+
+app-crypt::: The app-crypt category contains cryptographic (encryption, decryption, steganography and signing) software.:::app-crypt包含加密（加密，解密，隐写术和签名）软件。
+
+app-dicts::: The app-dicts category contains dictionary and word-list packages.:::app-dicts类包含词典和单词列表软件包。
+
+app-doc::: The app-doc category contains various miscellaneous documentation collections.:::app-doc包含各种应用程序的文档集合。
+
+app-editors::: The app-editors category contains text editors.:::app-editors中包含文本编辑器。
+
+app-emacs::: The app-emacs category contains extension packages for the Emacs text editor.:::app-emacs包含的Emacs文本编辑器的扩展包。
+
+app-emulation::: The app-emulation category contains emulation software.:::app-emulation包含仿真软件、虚拟机。
+
+app-forensics::: The app-forensics category contains software which helps detect and analyse security breaches.:::app-forensics包含可帮助检测和分析安全漏洞的软件包。
+
+app-i18n::: The app-i18n category contains internationalisation-related packages.:::app-i18n包含国际化相关的软件包。
+
+app-laptop::: The app-laptop category contains packages which are designed to work with certain kinds of laptop or notebook computer.:::app-laptop包含适用于特定笔记本电脑的应用程序。
+
+app-misc::: The app-misc category contains various miscellaneous application packages which don't belong anywhere else.:::app-misc包含各种杂项不属于任何其它的应用程序包。
+
+app-mobilephone::: The app-mobilephone category contains software for working with mobile phones.:::app-mobilephone包含手机相关的的应用软件。
+
+app-office::: The app-office category contains 'office' (word processing, spreadsheets, presentation) software packages.:::app-office包括“办公室”（文字处理，电子表格，演示文稿）软件包。
+
+app-officeext::: The app-officeext category contains extension packages for  LibreOffice and OpenOffice.:::app-officeext包含LibreOffice和OpenOffice的扩展包。
+
+app-pda::: The app-pda category contains software for working with personal digital assistants or hand-held computers.:::app-pda包含工作与个人数字助理或手持电脑的软件。
+
+app-portage::: The app-portage category contains software which works with portage or ebuilds.:::app-portage包含与portage或者ebuilds相关的软件包。
+
+app-shells::: The app-shells category contains shells and their extensions.:::app-shells包含各种命令行执行环境程序和它们的扩展。
+
+app-text::: The app-text category contains tools for working with human-language text files.:::app-text包含普通文本文件的处理工具。
+
+app-vim::: The app-vim category contains plugins, syntax file and spelling packages for the Vim text editor.:::app-vim包含使用于vim的插件，语法文件和拼写包。
+
+app-xemacs::: The app-xemacs category contains extensions for the XEmacs text editor.:::app-xemacs包含XEmacs的文字编辑器扩展。
+
+dev-ada::: The dev-ada category contains libraries and utilities relevant to the Ada programming language.:::dev-ada包含Ada编程语言的库和实用程序。
+
+dev-cpp::: The dev-cpp category contains libraries and utilities relevant to the c++ programming language.:::dev-cpp包含C + +编程语言的库和实用工具。
+
+dev-db::: The dev-db category contains libraries and utilities for database related programming.:::dev-db包含数据库编程库和实用工具。
+
+dev-dotnet::: The dev-dotnet category contains libraries and utilities relevant to the .NET programming environment.:::dev-dotnet类包含和.NET编程环境有关的库和实用程序。
+
+dev-embedded::: The dev-embedded category contains libraries and utilities relevant to embedded programming.:::dev-embedded包含嵌入式编程相关的库和实用程序。
+
+dev-games::: The dev-games category contains libraries and utilities relevant to games programming.:::dev-games包含游戏编程库和实用程序。
+
+dev-haskell::: The dev-haskell category contains libraries and utilities relevant to the Haskell programming language.:::dev-haskell包含Haskell编程语言相关的库和实用程序。
+
+dev-java::: The dev-java category contains libraries and utilities relevant to the Java programming language.:::dev-java类中包含Java编程语言相关的库和实用程序。
+
+dev-lang::: The dev-lang category contains various programming language implementations and related tools.:::dev-lang包含各种编程语言和相关工具。
+
+dev-libs::: The dev-libs category contains various miscellaneous programming libraries.:::dev-libs包含各种编程库。
+
+dev-lisp::: The dev-lisp category contains libraries and utilities relevant to the Lisp programming language.:::dev-lisp包含Lisp编程语言的库和实用程序。
+
+dev-lua::: The dev-lua category contains libraries, utilities or bindings written in or for the Lua programming language. :::dev-lisp类别包含Lua编程语言相关的的库、工具、接口绑定。
+
+dev-ml::: The dev-ml category contains libraries and utilities relevant to the ML programming language.:::dev-ml包含ML编程语言相关的库和实用程序。
+
+dev-perl::: The dev-perl category contains libraries and utilities relevant to the Perl programming language.:::dev-perl包含Perl编程语言的库和实用工具。
+
+dev-php::: The dev-php category contains libraries and utilities relevant to the PHP programming language.:::dev-php包含PHP编程语言相关的库和实用工具。
+
+dev-python::: The dev-python category contains libraries, utilities or bindings written in or for the Python programming language. :::dev-python包含python语言相关的库、工具或接口绑定。
+
+dev-ruby::: The dev-ruby category contains libraries and utilities relevant to the Ruby programming language.:::dev-ruby类包含Ruby编程语言的库和实用程序。
+
+dev-scheme::: The dev-scheme category contains libraries and utilities relevant to the Scheme programming language.:::dev-scheme包含有关scheme语言的库和实用工具。
+
+dev-tcltk::: The dev-tcltk category contains Tcl- and Tk-related libraries and tools.:::dev-tcltk类别包含Tcl和Tk相关的库和工具。
+
+dev-tex::: The dev-tex category contains libraries and tools useful when working with TeX and TeX-based environments such as LaTeX.:::dev-tex类包含Tex、以及基于Tex的比如Latex相关的库和
+
+dev-texlive::: The dev-texlive category contains various TeXLive's packages.:::dev-texlive包含各种texlive包。
+
+dev-util::: The dev-util category contains various miscellaneous development utilities.:::dev-util类别包含各种开发工具。
+
+dev-vcs::: The dev-vcs category contains utilities focused on version control.:::dev-vcs类别包含版本控制工具。
+
+games-action::: The games-action category contains action games.:::games-action包含动作类游戏。
+
+games-arcade::: The games-arcade category contains arcade games.:::games-arcade包含街机游戏。
+
+games-board::: The games-board category contains board games.:::games-board包含棋盘类游戏。
+
+games-emulation::: The games-emulation category contains game platform emulators.:::games-emulation包含游戏平台仿真器。
+
+games-engines::: The games-engines category contains game engines.:::games-engines包含游戏引擎。
+
+games-fps::: The games-fps category contains first person shooter games.:::games-fps包含第一人称射击游戏。
+
+games-kids::: The games-kids category contains games designed for children.:::games-kids类别包含专为儿童设计的游戏。
+
+games-misc::: The games-misc category contains miscellaneous games which do not fit into other games- categories.:::games-misc包含各种其他游戏。
+
+games-mud::: The games-mud category contains multi-user dungeon games.:::games-mud包含多用户地牢游戏。
+
+games-puzzle::: The games-puzzle category contains puzzle games.:::games-puzzle类益智游戏。
+
+games-roguelike::: The games-roguelike category contains games which resemble Rogue's style.:::games-roguelike包含roguelik风格的角色扮演游戏。
+
+games-rpg::: The games-rpg category contains role-playing games.:::games-rpg包含角色扮演游戏。
+
+games-server::: The games-server category contains game servers.:::games-server包含游戏服务器。
+
+games-simulation::: The games-simulation category contains simulation games.:::games-simulation包含模拟类游戏。
+
+games-sports::: The games-sports category contains sports games.:::games-sports包含体育类游戏。
+
+games-strategy::: The games-strategy category contains strategy games.:::games-strategy包含战略游戏。
+
+games-util::: The games-util category contains various game-related utilities.:::games-util包含各种与游戏相关的实用程序。
+
+gnome-base::: The gnome-base category contains core GNOME packages.:::gnome-base包含GNOME核心程序。
+
+gnome-extra::: The gnome-extra category contains additional non-core GNOME packages.:::gnome-extra包含更多的非核心GNOME包。
+
+gnustep-apps::: The gnustep-apps category contains GNUstep applications.:::gnustep-apps包含GNUstep的应用程序。
+
+gnustep-base::: The gnustep-base category contains GNUstep base packages.:::gnustep-base包含GNUstep的基础包。
+
+gnustep-libs::: The gnustep-libs category contains GNUstep libraries.:::gnustep-libs包含GNUstep的库。
+
+gpe-base::: The gpe-base category contains libraries, utilities for handheld and other input constrained and resource limited devices.:::gpe-base包含适用于手持或者其他输入操作受限的设备的库和工具.
+
+gpe-utils::: The gpe-utils category contains utility apps from the GPE environment.:::gpe-utils包含GPE环境下的实用应用程序。
+
+java-virtuals::: The java-virtuals category contains packages which satisfy virtual dependencies. These virtuals install a file which is used by the java-config system to provide information like classpath and minimum required vm values.:::java-virtuals包含满足依赖关系的虚拟包，这些虚拟安装的文件，供由Java的配置系统提供的信息，如类路径和所需的最低VM值。
+
+kde-base::: The kde-base category contains core KDE packages.:::kde-base包含核心的KDE包。
+
+kde-misc::: The kde-misc category contains various miscellaneous KDE packages.:::kde-misc类别包含各种杂项KDE包。
+
+lxde-base::: The lxde-base category contains core packages for LXDE, the Lightweight X11 Desktop Environment.:::lxde-base包含轻量级X11桌面环境LXDE的核心软件包。
+
+mail-client::: The mail-client category contains email clients.:::mail-client包含电子邮件客户端。
+
+mail-filter::: The mail-filter category contains email filtering software.:::mail-filter类别包含电子邮件过滤软件。
+
+mail-mta::: The mail-mta category contains mail transport agent packages.:::mail-mta包含邮件传输代理程序包。
+
+media-fonts::: The media-fonts category contains fonts.:::media-fonts类别包含字体。
+
+media-gfx::: The media-gfx category contains graphics-related packages.:::media-gfx包含图形相关的软件包。
+
+media-libs::: The media-libs category contains media-related libraries.:::media-libs包含媒体相关的库。
+
+media-plugins::: The media-plugins category contains plugin packages for various media applications.:::media-plugins包含各种媒体应用程序的插件包。
+
+media-radio::: The media-radio category contains radio-related media applications.:::media-radio包含无线电相关的媒体应用程序。
+
+media-sound::: The media-sound category contains sound, music and audio applications.:::media-sound包含声音，音乐和音频应用。
+
+media-tv::: The media-tv category contains television-related applications.:::media-tv包含电视相关的应用程序。
+
+media-video::: The media-video category contains video-related applications.:::media-video包含视频相关的应用程序。
+
+net-analyzer::: The net-analyzer category contains network analysis software.:::net-analyzer类别包含网络分析软件。
+
+net-dialup::: The net-dialup category contains dialup-related networking software.:::net-dialup包含拨号相关的网络软件。
+
+net-dns::: The net-dns category contains DNS (Domain Name Service) related software.:::net-dns包含DNS（域名服务）相关的软件。
+
+net-firewall::: The net-firewall category contains network firewall software.:::net-firewall包含网络防火墙软件。
+
+net-fs::: The net-fs category contains network filesystem packages.:::net-fs包含网络文件系统包。
+
+net-ftp::: The net-ftp contains FTP (File Transfer Protocol) software.:::net-ftp包含FTP（文件传输协议）软件。
+
+net-im::: The net-im category contains instant messaging software.:::net-im包含即时通讯软件。
+
+net-irc::: The net-irc category contains IRC (Internet Relay Chat) clients and servers.:::net-irc包含IRC（互联网中继聊天）客户端和服务器。
+
+net-libs::: The net-libs category contains libraries that are network-related.:::net-libs类别是与网络相关的库。
+
+net-mail::: The net-mail category contains various email-related utilities.:::net-mail包含各种电子邮件相关的实用程序。
+
+net-misc::: The net-misc category contains various miscellaneous networking tools and utilities.:::net-misc包含各种杂项网络工具和实用程序。
+
+net-nds::: The net-nds category contains NDS (NetWare Directory Services) software.:::net-nds类别包含NetWare目录服务（NDS）软件。
+
+net-news::: The net-news category contains news-related network software.:::net-news包含新闻相关的网络软件。
+
+net-nntp::: The net-nntp category contains NNTP (Network News Transfer Protocol) software.:::net-nntp类别包含NNTP（网络新闻传输协议）软件。
+
+net-p2p::: The net-p2p category contains peer-to-peer networking applications.:::net-p2p包含对等网络应用程序。
+
+net-print::: The net-print category contains network printing packages.:::net-print包含网络打印包。
+
+net-proxy::: The net-proxy category contains network proxy software.:::net-proxy包含网络代理软件。
+
+net-voip::: The net-voip category contains packages related to Voice-over-IP:::net-voip包含和Voice-over-IP相关的软件包。
+
+net-wireless::: The net-wireless category contains wireless networking software and utilities.:::net-wireless包含无线网络软件和实用程序。
+
+net-zope::: The net-zope category contains all Zope (zope.org) related software including third party products and tools.:::net-zope类别包含所有的Zope（zope.org）相关的软件，包括第三方产品和工具。
+
+perl-core::: The perl-core category contains libraries and utilities relevant to the Perl programming language.:::Perl-core包含的Perl编程语言的库和实用程序。
+
+razorqt-base::: The razorqt-base category contains core packages for Razor-Qt, the fast desktop environment based on Qt.:::razorqt-base包含基于Qt的快速桌面环境Razor-Qt的核心软件包。
+
+rox-base::: The rox-base category contains core Rox packages.:::rox-base包含Rox的核心包。
+
+rox-extra::: The rox-extra category contains extra non-core Rox packages.:::rox-extra包含额外的非核心Rox包。
+
+sci-astronomy::: The sci-astronomy category contains software that can be used in astronomical and related scientific environments.:::sci-astronomy包含可用于天文和相关的科学领域的软件包。
+
+sci-biology::: The sci-biology category contains software that can be used in biological and related scientific environments.:::sci-biology包含生物及相关的领域软件。
+
+sci-calculators::: The sci-calculators category contains scientific calculator packages.:::sci-calculators包含的科学计算器软件包。
+
+sci-chemistry::: The sci-chemistry category contains software that can be used in chemistral scientific environments.:::sci-chemistry包含化学类软件。
+
+sci-electronics::: The sci-electronics category contains electronics packages.:::sci-electronics包含电子类软件。
+
+sci-geosciences::: The sci-geosciences category contains geosciences-related software.:::sci-geosciences包含地球科学相关的软件。
+
+sci-libs::: The sci-libs category contains various science-related libraries.:::sci-libs类别包含各种与科学有关的库。
+
+sci-mathematics::: The sci-mathematics category contains mathematical software.:::sci-mathematics包括数学软件。
+
+sci-misc::: The sci-misc category contains various miscellaneous science applications which do not fit any other sci-* category.:::sci-misc包含各种杂项科学应用。
+
+sci-physics::: The sci-physics category contains physics related software.:::sci-physics包含物理相关的软件。
+
+sci-visualization::: The sci-visualization category contains scientific visualization applications.:::sci-visualization包含科学可视化应用程序。
+
+sec-policy::: The sec-policy category contains security policies for access control systems such as SELinux.:::sec-policy包含访问控制系统的安全策略，如SELinux。
+
+sys-apps::: The sys-apps category contains various core system applications, and some non-core system applications which have not yet been moved out into other sys- categories.:::sys-apps包含各种核心系统的应用，以及一些非核心的系统尚未被归类到其他sys-的应用程序。
+
+sys-auth::: The sys-auth category contains applications and libraries to support authentication and authorization facilities. Here belongs PAM modules, NSS modules and login apps.:::sys-auth包含支持认证的应用程序和库，以及授权工具。属于PAM模块，NSS模块和登录应用程序。
+
+sys-block::: The sys-block category contains packages which work with block devices.:::sys-block包含与块设备的包。
+
+sys-boot::: The sys-boot category contains bootloaders and related tools.:::sys-boot包含的引导程序和相关工具。
+
+sys-cluster::: The sys-cluster category contains cluster-related software.:::sys-cluster包含群集相关的软件。
+
+sys-devel::: The sys-devel category contains various core system development tools and libraries.:::sys-devel包含多种核心系统开发工具和库。
+
+sys-firmware::: The sys-firmware category contains misc. firmware and microcode.:::sys-firmware包含固件程序和微代码。
+
+sys-freebsd::: Ebuilds for the Gentoo/FreeBSD base system software.:::sys-freebsd包含Gentoo/FreeBSD的基本系统软件。
+
+sys-fs::: The sys-fs category contains filesystem tools and utilities.:::sys-fs包含文件系统工具和实用程序。
+
+sys-infiniband::: The sys-infiniband category contains OFED software stack and other infiniband related software.:::sys-infiniband包含OFED软件堆栈和其他的InfiniBand相关的软件。
+
+sys-kernel::: The sys-kernel category contains kernel source ebuilds and kernel-related tools.:::sys-kernel包含内核源代码和内核相关的工具。
+
+sys-libs::: The sys-libs category contains various system-level libraries.:::sys-libs包含各种系统级库。
+
+sys-power::: The sys-power category contains software which handles power management, including CPU frequency scaling tools.:::sys-power包含电源管理软件，包括CPU频率缩放工具。
+
+sys-process::: The sys-process category contains packages which query or manipulate processes. The 'cron' daemons are included in this.:::sys-process包含查询或管理进程的软件，cron守护进程也包含在此。
+
+virtual::: The virtual category contains packages which satisfy virtual dependencies.:::满足虚拟依赖关系。
+
+www-apache::: The www-apache category contains modules for the Apache webserver.:::www-apache类别包含Apache 服务器的模块。
+
+www-apps::: The www-apps category contains various world wide web applications.:::www-apps包含各种万维网应用程序。
+
+www-client::: The www-client category contains world wide web clients.:::www-client包含万维网客户端类。
+
+www-misc::: The www-misc category contains various miscellaneous world wide web software.:::www-misc包含的各种杂项万维网软件。
+
+www-plugins::: The www-plugins category contains plug-ins for Web browsers.:::www-plugins包含Web浏览器插件。
+
+www-servers::: The www-servers category contains web server packages.:::www-servers包含Web服务器软件包。
+
+x11-apps::: x11-apps contains applications distributed as part of X.Org X11.:::x11-apps包含和X.Org X11一起发布的应用程序。
+
+x11-base::: The x11-base category contains various X11 base implementations.:::x11-base包含各种X11基本实现。
+
+x11-drivers::: x11-drivers contain drivers that interface with the core X11 server.:::x11-drivers包含对接于X11服务器的驱动程序。
+
+x11-libs::: The x11-libs category contains various X11-related libraries.:::x11-libs包含各种X11相关的库。
+
+x11-misc::: The x11-misc category contains miscellaneous X11 applications which do not belong elsewhere.:::x11-misc包含不属于其他类别的X11应用程序。
+
+x11-plugins::: The x11-plugins category contains plugin packages for various X11 applications.:::X11-plugins类别包含各种X11应用程序的插件包。
+
+x11-proto::: x11-proto contains the X11 protocol headers.:::x11-protoX11协议的报头。
+
+x11-terms::: The x11-terms category contains terminal emulators for X11 environments.:::x11-terms包含X11环境下的终端仿真器。
+
+x11-themes::: The x11-themes category contains various theme and style packages for X11 applications.:::x11-themes包含各种适用X11应用的题材和风格软件包。
+
+x11-wm::: The x11-wm category contains X11 window managers.:::x11-wm包含了X11的窗口管理器。
+
+xfce-base::: The xfce-base category contains base XFCE packages.:::xfce-base包含基本的XFCE包。
+
+xfce-extra::: The xfce-extra category contains non-core XFCE applications.:::xfce-extra包含非核心的XFCE应用程序。
+

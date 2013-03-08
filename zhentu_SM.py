@@ -1,20 +1,20 @@
 ##!/usr/bin/gksu /usr/bin/python2
-# -*-encoding:utf-8 -*-
+# -*- encoding:utf-8 -*-
 from gi.repository import Gtk
 from subprocess import Popen,PIPE
 import os
 import re
-
+import gettext
+import sys
 class  sm_win(Gtk.Window):
    def __init__(self):
       with open('/etc/release','r') as f_re:
          this_issue=f_re.readline()
-      Gtk.Window.__init__(self, title="zhentu software manager v0.1 for "+this_issue)
-
+      gettext.install('zhentu_SM','./locale/')
+      Gtk.Window.__init__(self, title=_("zhentu software manager v0.1 for ")+this_issue)
       self.connect("delete-event", self.sm_Win_quit)
-      
       self.set_border_width(10)
-      self.set_default_size(500,800)
+      self.set_default_size(800,800)
       self.set_resizable(True)
       vb_main=Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
       self.add(vb_main)
@@ -34,7 +34,7 @@ class  sm_win(Gtk.Window):
       select = self.portage_view.get_selection()
       select.connect("changed", self.on_tree_selection_changed)
       renderer = Gtk.CellRendererText()
-      column = Gtk.TreeViewColumn("   software   ", renderer, text=0)
+      column = Gtk.TreeViewColumn(_("   software   "), renderer, text=0)
       self.portage_view.append_column(column)
       scrolled = Gtk.ScrolledWindow()
       scrolled.set_hexpand(False)
@@ -43,11 +43,11 @@ class  sm_win(Gtk.Window):
       scrolled.add(self.portage_view)
       vb_tree.pack_start(scrolled,True, True, 0)
       b_tree_but=Gtk.Box()
-      sel_installed=Gtk.RadioButton.new_with_label_from_widget(None,'Installed')
+      sel_installed=Gtk.RadioButton.new_with_label_from_widget(None,_('Installed'))
       sel_installed.connect("toggled", self.change_view_model,'installed')
-      sel_uninstalled=Gtk.RadioButton.new_with_label_from_widget(sel_installed,'UnInstalled')
+      sel_uninstalled=Gtk.RadioButton.new_with_label_from_widget(sel_installed,_('UnInstalled'))
       sel_uninstalled.connect("toggled", self.change_view_model,'uninstalled')
-      sel_all=Gtk.RadioButton.new_with_label_from_widget(sel_installed,'All')
+      sel_all=Gtk.RadioButton.new_with_label_from_widget(sel_installed,_('All'))
       sel_all.connect("toggled", self.change_view_model,'all')
       b_tree_but.pack_start(sel_installed,False, True, 0)
       b_tree_but.pack_start(sel_uninstalled,False, True, 0)
@@ -56,7 +56,7 @@ class  sm_win(Gtk.Window):
 
       info_view = Gtk.TextView()
       self.info_buffer = info_view.get_buffer()
-      self.info_buffer.set_text("Software Info shows here")
+      self.info_buffer.set_text(_("Software Info shows here"))
       scro_softinfo = Gtk.ScrolledWindow()
       scro_softinfo.set_hexpand(False)
       scro_softinfo.set_vexpand(True)
@@ -66,18 +66,18 @@ class  sm_win(Gtk.Window):
 
       vb_but=Gtk.Box()
       vb_operate.pack_start(vb_but,False, True, 0)
-      but_install=Gtk.Button.new_with_label("Install")
+      but_install=Gtk.Button.new_with_label(_("Install"))
       vb_but.pack_start(but_install,True, False, 5) 
-      but_remove=Gtk.Button("Remove")
+      but_remove=Gtk.Button(_("Remove"))
       vb_but.pack_start(but_remove,True, True, 5) 
-      but_kernel=Gtk.Button("Update Kernel")
+      but_kernel=Gtk.Button(_("Update Kernel"))
       vb_but.pack_start(but_kernel,True, True, 5) 
-      but_portage=Gtk.Button("Update Portage")
+      but_portage=Gtk.Button(_("Update Portage"))
       vb_but.pack_start(but_portage,True, True, 5) 
       
       emerge_view = Gtk.TextView()
       self.emerge_buffer = emerge_view.get_buffer()
-      self.emerge_buffer.set_text("emerge info shows here")
+      self.emerge_buffer.set_text(_("emerge info shows here"))
       scro_emergeinfo = Gtk.ScrolledWindow()
       scro_emergeinfo.set_hexpand(False)
       scro_emergeinfo.set_vexpand(True)
@@ -125,19 +125,28 @@ class  sm_win(Gtk.Window):
       li_overlay = p2.communicate()[0].lstrip("PORTDIR_OVERLAY=\"").rstrip("\"\n").split(' ')
       return li_overlay
    def show_cate_info(self,cate):
-      with open(self.portdir+'/'+cate+'/metadata.xml') as f_meta:
-        while re.search('<longdescription lang="en">',f_meta.readline())==None:
-           continue
-        line=f_meta.readline()
-        if re.search('</longdescription>',line) != None:
-           print 'metadata.xml of '+cate+' has no english disciption'
-        else:   
-           info='Category Explanation:\n\n '    
-           while re.search('</longdescription>',line) == None:
-              line=line.lstrip()
-              info=info+line
-              line=f_meta.readline()
-
+      info=_('\nCategory Explanation:\n\n')    
+      with open('./translating/cate_description/description_translated') as f_desc:
+         for line in f_desc:
+            if re.search(cate+':::',line) == None:
+               continue
+            else:   
+               if re.search('zh_CN',os.environ['LANG']) == None:
+                  info=info+line.split(':::')[1]
+               else:
+                  info=info+line.split(':::')[2]
+      if info == '\nCategory Explanation:\n\n':
+         with open(self.portdir+'/'+cate+'/metadata.xml') as f_meta:
+           while re.search('<longdescription lang="en">',f_meta.readline())==None:
+              continue
+           line=f_meta.readline()
+           if re.search('</longdescription>',line) != None:
+              print 'metadata.xml of '+cate+' has no english disciption'
+           else:   
+              while re.search('</longdescription>',line) == None:
+                 line=line.lstrip()
+                 info=info+line
+                 line=f_meta.readline()
       self.info_buffer.set_text(info)  
    
    def parser(self, line):
@@ -151,34 +160,41 @@ class  sm_win(Gtk.Window):
          value=re.sub('.*'+key+':','',li).lstrip()
       return space_head,key,value   
    def show_soft_info(self,cate,soft):
-      p1=Popen(['eix','-nev',cate+'/'+soft],stdout=PIPE) # eix noclolor exactly verbose
-      info='Software Explanation:\n'
+      p1=Popen(['eix','-ne',cate+'/'+soft],stdout=PIPE) # eix noclolor exactly verbose
+      info=_('Software Explanation:\n')
       info_raw=p1.communicate()[0].splitlines()
       head_spaces=' '*5
-      info=info+head_spaces+'Name: '+cate+'/'+soft+'\n'
+      info=info+head_spaces+_('Name: ')+cate+'/'+soft+'\n'
       space_head_old=space_head_now=0
+      if re.search('zh_CN',os.environ['LANG']) == None:
+         env_lang='en'
+      else:
+         env_lang='zh'
       for li in info_raw[1:]:
          space_head_now,key,value=self.parser(li)
          if key == 'Homepage':
-            info=info+head_spaces+'Homepage:\n'.ljust(5)
+            info=info+head_spaces+_('Homepage:\n')
             info=info+head_spaces*2+value+'\n'
          elif key == 'Description':
-            info=info+head_spaces+'Description:\n'.ljust(5)
-            if re.search('zh_CN',os.environ['LANG']) == None:
+            info=info+head_spaces+_('Description:\n')
+            if env_lang =='en':
                info=info+head_spaces*2+value+'\n'
             else:
                with open('translating/description_translated') as f_trans:
                   trans_zh=''
                   for li in f_trans:
                      if li.startswith(cate+'/'+soft) == True:
-                        print(value,li)
+                        #print(value,li)
                         if re.search(re.escape(value),li) != None:
-                          print('OK:  translation for '+cate+'/'+soft)
+                          #print('OK:  translation for '+cate+'/'+soft)
                           trans_zh=li.split(':::')[2]
                           break
                   if trans_zh == '':
                      print('Error: No translation for '+cate+'/'+soft)
                info=info+head_spaces*2+trans_zh+'\n'
+         elif key == 'Installed versions':
+            info=info+head_spaces+_('Installed:\n')
+            info=info+head_spaces*2+re.sub('\(.*','',value)+'\n'   #value可能包含KEYWORDS和RESTRICT,man 5 ebuild: Masking,RESTRICT,
       self.info_buffer.set_text(info)
       
    def on_tree_selection_changed(self,selection):

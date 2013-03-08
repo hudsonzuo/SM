@@ -1,0 +1,1 @@
+grep -e '^\*' -e '^\[' -e Description  eix   >eix_descip 

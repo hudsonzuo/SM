@@ -1,0 +1,92 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-03-08 17:15+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARMAP\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: zhentu_SM.py:14
+msgid "zhentu software manager v0.1 for "
+msgstr "朕兔软件管理器 v0.1, 发行:"
+
+#: zhentu_SM.py:37
+msgid "   software   "
+msgstr "   软件   "
+
+#: zhentu_SM.py:46
+msgid "Installed"
+msgstr "已安装"
+
+#: zhentu_SM.py:48
+msgid "UnInstalled"
+msgstr "未安装"
+
+#: zhentu_SM.py:50
+msgid "All"
+msgstr "所有的"
+
+#: zhentu_SM.py:59
+msgid "Software Info shows here"
+msgstr "这里显示软件信息"
+
+#: zhentu_SM.py:69
+msgid "Install"
+msgstr "安装"
+
+#: zhentu_SM.py:71
+msgid "Remove"
+msgstr "卸载"
+
+#: zhentu_SM.py:73
+msgid "Update Kernel"
+msgstr "升级内核"
+
+#: zhentu_SM.py:75
+msgid "Update Portage"
+msgstr "升级portage"
+
+#: zhentu_SM.py:80
+msgid "emerge info shows here"
+msgstr "这里显示安装过程信息"
+
+#: zhentu_SM.py:128
+msgid ""
+"\n"
+"Category Explanation:\n"
+"\n"
+msgstr ""
+"\n"
+"类别详情说明:\n"
+"\n"
+
+#: zhentu_SM.py:164
+msgid "Software Explanation:\n"
+msgstr "软件详情:\n"
+
+#: zhentu_SM.py:167
+msgid "Name: "
+msgstr "名称:"
+
+#: zhentu_SM.py:176
+msgid "Homepage:\n"
+msgstr "主页:\n"
+
+#: zhentu_SM.py:179
+msgid "Description:\n"
+msgstr "描述:\n"
+
+#: zhentu_SM.py:196
+msgid "Installed:\n"
+msgstr "已安装\n"
