@@ -1,4 +1,4 @@
-##!/usr/bin/gksu /usr/bin/python2
+##!/usr/bin/gksu /usr/bin/python3
 # -*- encoding:utf-8 -*-
 from gi.repository import Gtk
 from subprocess import Popen,PIPE
@@ -6,12 +6,18 @@ import os
 import re
 import gettext
 import sys
-class  sm_win(Gtk.Window):
+class  Sm_win(Gtk.Window):
    def __init__(self):
       with open('/etc/release','r') as f_re:
          this_issue=f_re.readline()
       gettext.install('zhentu_SM','./locale/')
+      #gettext.bindtextdomain('zhentu_SM', './locale/')
+      #gettext.textdomain('zhentu_SM')
+      #_ = gettext.gettext
       Gtk.Window.__init__(self, title=_("zhentu software manager v0.1 for ")+this_issue)
+      str_dbg=_("zhentu software manager v0.1 for ")
+      print(str_dbg.encode('utf-8'))
+      print("ÊúïÂÖîËΩØ‰ª∂ÁÆ°ÁêÜÂô® v0.1, ÂèëË°å:".encode('utf-8'))
       self.connect("delete-event", self.sm_Win_quit)
       self.set_border_width(10)
       self.set_default_size(800,800)
@@ -53,7 +59,6 @@ class  sm_win(Gtk.Window):
       b_tree_but.pack_start(sel_uninstalled,False, True, 0)
       b_tree_but.pack_start(sel_all,False, True, 0)
       vb_tree.pack_end(b_tree_but,False, True, 0)
-
       info_view = Gtk.TextView()
       self.info_buffer = info_view.get_buffer()
       self.info_buffer.set_text(_("Software Info shows here"))
@@ -64,15 +69,19 @@ class  sm_win(Gtk.Window):
       scro_softinfo.add(info_view)
       vb_operate.pack_start(scro_softinfo,True, True, 0)
 
+      self.pkg=''
       vb_but=Gtk.Box()
       vb_operate.pack_start(vb_but,False, True, 0)
-      but_install=Gtk.Button.new_with_label(_("Install"))
+      but_install=Gtk.Button.new_with_label(_("Install/Update"))
       vb_but.pack_start(but_install,True, False, 5) 
+      but_install.connect('clicked',self.on_clicked_install,self.pkg)
       but_remove=Gtk.Button(_("Remove"))
       vb_but.pack_start(but_remove,True, True, 5) 
       but_kernel=Gtk.Button(_("Update Kernel"))
       vb_but.pack_start(but_kernel,True, True, 5) 
       but_portage=Gtk.Button(_("Update Portage"))
+      vb_but.pack_start(but_portage,True, True, 5) 
+      but_portage=Gtk.Button(_("Repair Dependency"))
       vb_but.pack_start(but_portage,True, True, 5) 
       
       emerge_view = Gtk.TextView()
@@ -90,7 +99,7 @@ class  sm_win(Gtk.Window):
    
    def model_init(self, model_all, model_installed, model_uninstalled):
       p1 = Popen(["qlist", "-IC"], stdout=PIPE)
-      installed=p1.communicate()[0].split('\n')
+      installed=p1.communicate()[0].splitlines()
       installed
       li=os.listdir(self.portdir)
       li.sort()
@@ -141,7 +150,7 @@ class  sm_win(Gtk.Window):
               continue
            line=f_meta.readline()
            if re.search('</longdescription>',line) != None:
-              print 'metadata.xml of '+cate+' has no english disciption'
+              print('metadata.xml of '+cate+' has no english disciption')
            else:   
               while re.search('</longdescription>',line) == None:
                  line=line.lstrip()
@@ -194,13 +203,16 @@ class  sm_win(Gtk.Window):
                info=info+head_spaces*2+trans_zh+'\n'
          elif key == 'Installed versions':
             info=info+head_spaces+_('Installed:\n')
-            info=info+head_spaces*2+re.sub('\(.*','',value)+'\n'   #valueø…ƒ‹∞¸∫¨KEYWORDS∫ÕRESTRICT,man 5 ebuild: Masking,RESTRICT,
+            info=info+head_spaces*2+re.sub('\(.*','',value)+'\n'   #valueÂèØËÉΩÂåÖÂê´KEYWORDSÂíåRESTRICT,man 5 ebuild: Masking,RESTRICT,
+         elif key == 'Available versions':
+            print(value) 
       self.info_buffer.set_text(info)
       
    def on_tree_selection_changed(self,selection):
       model, iter_now = selection.get_selected()
       if iter_now != None:
          iter_par=model.iter_parent(iter_now)
+         soft =''
          if iter_par == None :
             cate=model[iter_now][0]
             self.show_cate_info(cate)
@@ -208,8 +220,24 @@ class  sm_win(Gtk.Window):
             cate=model[iter_par][0]
             soft=model[iter_now][0]
             self.show_soft_info(cate,soft)
-
-win = sm_win()
+         if soft != '':  
+            self.pkg=cate+'/'+soft       
+   def on_clicked_install(self,butname,pkg):
+      print('on_clicked_install')
+      
+#     The following USE changes are necessary to proceed:
+#     #required by dev-texlive/texlive-xetex-2011, required by dev-texlive/texlive-xetex (argument)
+#     =app-text/texlive-core-2011-r6 xetex
+#    
+#
+#     The following keyword changes are necessary to proceed:
+#     #required by app-vim/notes (argument)
+#     =app-vim/notes-0.16.17 ~x86
+#     #required by app-vim/notes-0.16.17, required by app-vim/notes (argument)
+#     =app-vim/xolox-misc-20111124 ~x86
+#
+#     ACCEPT_KEYWORDS='x86' emerge -avt app-vim/notes
+win = Sm_win()
 win.set_position(Gtk.WindowPosition.CENTER_ALWAYS)
 win.show_all()
 Gtk.main()
