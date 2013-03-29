@@ -1,7 +1,7 @@
 ##!/usr/bin/gksu /usr/bin/python3
 # -*- encoding:utf-8 -*-
 from gi.repository import Gtk
-from subprocess import Popen,PIPE
+from subprocess import Popen,PIPE,getstatusoutput
 import os
 import re
 import gettext
@@ -70,13 +70,16 @@ class  Sm_win(Gtk.Window):
       vb_operate.pack_start(scro_softinfo,True, True, 0)
 
       self.pkg=''
+      self.pkg_iter=None
+
       vb_but=Gtk.Box()
       vb_operate.pack_start(vb_but,False, True, 0)
       but_install=Gtk.Button.new_with_label(_("Install/Update"))
       vb_but.pack_start(but_install,True, False, 5) 
-      but_install.connect('clicked',self.on_clicked_install,self.pkg)
+      but_install.connect('clicked',self.on_clicked_install)
       but_remove=Gtk.Button(_("Remove"))
       vb_but.pack_start(but_remove,True, True, 5) 
+      but_remove.connect('clicked',self.on_clicked_uninstall)
       but_kernel=Gtk.Button(_("Update Kernel"))
       vb_but.pack_start(but_kernel,True, True, 5) 
       but_portage=Gtk.Button(_("Update Portage"))
@@ -99,8 +102,7 @@ class  Sm_win(Gtk.Window):
    
    def model_init(self, model_all, model_installed, model_uninstalled):
       p1 = Popen(["qlist", "-IC"], stdout=PIPE)
-      installed=p1.communicate()[0].splitlines()
-      installed
+      installed=p1.communicate()[0].decode('utf-8').splitlines()   #Popen返还的是byte str,所以需要decode。分成list是因为list的count()比str的count()更精确
       li=os.listdir(self.portdir)
       li.sort()
       for cate in li:
@@ -118,7 +120,17 @@ class  Sm_win(Gtk.Window):
                   model_uninstalled.append(iter_p_uninstalled,[soft])
                else:   
                   model_installed.append(iter_p_installed,[soft])
-  
+   def model_update(self,model_reduce,model_increase):
+      cate=re.sub('/.*','',self.pkg)
+      soft=re.sub('.*/','',self.pkg)
+      iter_now=model_increase.get_iter_first()
+      while iter_now != None:
+         if model_increase[iter_now][0] == cate:
+            break
+         iter_now=model_increase.iter_next(iter_now)   
+      model_reduce.remove(self.pkg_iter)
+      model_increase.append(iter_now,[soft])   
+      
    def  change_view_model(self, button, name):
        if button.get_active():
           if name =='all':
@@ -171,7 +183,7 @@ class  Sm_win(Gtk.Window):
    def show_soft_info(self,cate,soft):
       p1=Popen(['eix','-ne',cate+'/'+soft],stdout=PIPE) # eix noclolor exactly verbose
       info=_('Software Explanation:\n')
-      info_raw=p1.communicate()[0].splitlines()
+      info_raw=p1.communicate()[0].decode('utf-8').splitlines()
       head_spaces=' '*5
       info=info+head_spaces+_('Name: ')+cate+'/'+soft+'\n'
       space_head_old=space_head_now=0
@@ -222,13 +234,16 @@ class  Sm_win(Gtk.Window):
             self.show_soft_info(cate,soft)
          if soft != '':  
             self.pkg=cate+'/'+soft       
-   def on_clicked_install(self,butname,pkg):
+            self.pkg_iter=iter_now
+
+   def on_clicked_install(self,butname,):
       print('on_clicked_install')
+      print(self.pkg)
       
 #     The following USE changes are necessary to proceed:
 #     #required by dev-texlive/texlive-xetex-2011, required by dev-texlive/texlive-xetex (argument)
 #     =app-text/texlive-core-2011-r6 xetex
-#    
+          
 #
 #     The following keyword changes are necessary to proceed:
 #     #required by app-vim/notes (argument)
@@ -237,6 +252,22 @@ class  Sm_win(Gtk.Window):
 #     =app-vim/xolox-misc-20111124 ~x86
 #
 #     ACCEPT_KEYWORDS='x86' emerge -avt app-vim/notes
+      cmd_re=getstatusoutput('emerge '+self.pkg)
+      print('emerge '+self.pkg)
+      if cmd_re[0] == 0:
+          print(self.pkg+' is installed')
+          self.model_update(self.portage_model_uninstalled,self.portage_model_installed)
+      else :
+          print(cmd_re[1].splitlines())
+   def on_clicked_uninstall(self,butname):
+      print('on_clicked_uninstall')
+      cmd_re=getstatusoutput('emerge -C '+self.pkg)
+      if cmd_re[0] == 0:
+          print('removed')
+          self.model_update(self.portage_model_installed,self.portage_model_uninstalled)
+      else:
+         print('do nothing')
+      
 win = Sm_win()
 win.set_position(Gtk.WindowPosition.CENTER_ALWAYS)
 win.show_all()

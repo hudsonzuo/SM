@@ -1,4 +1,7 @@
 
 1, qsearch 和eix得到的description结果不一样,比如virtualbox
 
+2, po文件charset=utf-8：
+       否则python3会解码错误
+
 
